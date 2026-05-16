@@ -6,7 +6,7 @@ Personal portfolio of **Harsh Upadhyay** (@timelinebyharsh) — a Delhi-based co
 
 ## 📊 Highlights
 
-- 🔥 **3.6M+ Total Views** across top reels
+- 🔥 **5M+ Total Views** across top reels
 - 🌊 **2M Views** on single reel (NASA × Bhagwat Purana)
 - 📤 **96K+ Shares** — organic, no paid promotion
 - 📱 **1.1M Views** in last 30 days
