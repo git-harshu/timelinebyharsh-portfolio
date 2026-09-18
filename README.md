@@ -6,36 +6,47 @@ Personal portfolio of **Harsh Upadhyay** (@timelinebyharsh) — a Delhi-based co
 
 ## 📊 Highlights
 
-- 🔥 **5M+ Total Views** across top reels
-- 🌊 **2M Views** on single reel (NASA × Bhagwat Purana)
-- 📤 **96K+ Shares** — organic, no paid promotion
-- 📱 **1.1M Views** in last 30 days
-- 💯 **100% Organic Reach**
+- 🔥 **12M+ Total Views** across the account
+- 🌊 **2.2M Views** on a single reel (NASA × Bhagwat Purana)
+- ❤️ **500K+ Likes** (verified floor — actual figure is higher)
+- ☑️ **Verified account** · 6,851 followers · 240 posts
+- 📈 **12 reels past 100K views** — repeatable reach, not one spike
+- 💯 **100% Organic** — no paid promotion
+
+## 🤝 Brand Experience
+
+- **Hair Mastery, Zurich** — Social Media Manager for a verified international hair education brand (62.4K followers, 565 posts)
 
 ## 🛠 Built With
 
 - Pure HTML5 + CSS3 + Vanilla JS
 - Google Fonts (Playfair Display + DM Sans)
 - No frameworks, no dependencies — blazing fast
+- Single-file build: all content lives in a JSON block inside `index.html`
 
-## 🚀 Deploy on GitHub Pages
+## ✏️ Updating the numbers
 
-1. Go to repo **Settings → Pages**
-2. Source: **Deploy from branch → main → / (root)**
-3. Save → Live at `https://YOUR_USERNAME.github.io/timelinebyharsh-portfolio`
+All portfolio content sits in one place — the `<script id="portfolio-data">` JSON block near the bottom of `index.html`. Edit the values there (followers, reel stats, services, brands), save, commit, and push. Nothing else needs touching.
+
+## 🚀 Deploy
+
+**Vercel** (current): push to `main` and Vercel redeploys automatically.
+
+**GitHub Pages**: Settings → Pages → Deploy from branch → `main` → `/ (root)`.
 
 ## 📁 Structure
 
 ```
 timelinebyharsh-portfolio/
-└── index.html   # Complete single-page portfolio
+├── index.html   # Complete single-page portfolio
 └── README.md
 ```
 
 ## 🔗 Links
 
 - Instagram: [@timelinebyharsh](https://instagram.com/timelinebyharsh)
-- Portfolio: [harsh-creates.vercel.app](https://harsh-creates.vercel.app/)
+- YouTube: [@timelinebyharsh](https://youtube.com/@timelinebyharsh)
+- Web & AI work: [harsh-creates.vercel.app](https://harsh-creates.vercel.app/)
 
 ---
 
