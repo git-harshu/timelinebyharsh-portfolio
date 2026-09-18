@@ -1,1216 +1,1005 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Harsh Upadhyay — @timelinebyharsh</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<meta name="description" content="Sanatan. Science. Sach. — Delhi-based content creator blending Hindu mythology and modern science into short-form video.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --orange: #FF6B35;
-    --gold: #FF9F1C;
-    --dark: #0a0a0a;
-    --dark2: #111111;
-    --dark3: #1a1a1a;
-    --card: #161616;
-    --border: rgba(255,255,255,0.08);
-    --border2: rgba(255,107,53,0.3);
-    --text: #ffffff;
-    --text2: #aaaaaa;
-    --text3: #666666;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--dark);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--orange), var(--gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--text2);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--orange); }
-
-  .nav-cta {
-    background: linear-gradient(135deg, var(--orange), var(--gold));
-    color: #fff !important;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-weight: 600 !important;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 24px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,107,53,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-om {
-    font-size: 80px;
-    line-height: 1;
-    margin-bottom: 24px;
-    animation: floatom 4s ease-in-out infinite;
-    display: block;
-  }
-
-  @keyframes floatom {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255,107,53,0.15);
-    border: 1px solid rgba(255,107,53,0.4);
-    color: var(--orange);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 20px;
-    margin-bottom: 24px;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 7vw, 80px);
-    font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, #ffffff 0%, #ffcba4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-handle {
-    font-size: 20px;
-    color: var(--orange);
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-
-  .hero-tagline {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(18px, 3vw, 26px);
-    color: var(--text2);
-    margin-bottom: 36px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-tagline span {
-    color: var(--orange);
-    font-style: normal;
-    font-weight: 700;
-  }
-
-  .hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 48px;
-  }
-
-  .hero-tag {
-    background: rgba(255,255,255,0.06);
-    border: 0.5px solid var(--border);
-    color: var(--text2);
-    font-size: 13px;
-    padding: 6px 16px;
-    border-radius: 20px;
-  }
-
-  .hero-btns {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--orange), var(--gold));
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 24px rgba(255,107,53,0.35);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(255,107,53,0.5);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .btn-outline:hover {
-    border-color: var(--orange);
-    color: var(--orange);
-  }
-
-  /* ── SECTIONS ── */
-  section {
-    padding: 100px 24px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 16px;
-    color: var(--text);
-  }
-
-  .section-sub {
-    font-size: 16px;
-    color: var(--text2);
-    max-width: 560px;
-    line-height: 1.7;
-    margin-bottom: 56px;
-  }
-
-  /* ── STATS BAR ── */
-  .stats-bar {
-    background: var(--dark2);
-    border-top: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-    padding: 40px 24px;
-  }
-
-  .stats-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 32px;
-    text-align: center;
-  }
-
-  .stat-item {}
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--orange), var(--gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-lbl {
-    font-size: 13px;
-    color: var(--text3);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-  }
-
-  /* ── PROOF OF WORK ── */
-  .pow-section {
-    padding: 100px 24px;
-    background: var(--dark2);
-  }
-
-  .pow-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .reel-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  @media (max-width: 700px) {
-    .reel-grid { grid-template-columns: 1fr; }
-  }
-
-  .reel-card {
-    background: var(--card);
-    border: 0.5px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .reel-card:hover {
-    border-color: rgba(255,107,53,0.3);
-    transform: translateY(-2px);
-  }
-
-  .reel-card.featured {
-    border-color: var(--orange);
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, #1a0d00 0%, #161616 60%);
-  }
-
-  .viral-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--orange);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .reel-topic {
-    font-size: 11px;
-    color: var(--text3);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-  }
-
-  .reel-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.3;
-    margin-bottom: 6px;
-  }
-
-  .reel-card.featured .reel-title {
-    font-size: 24px;
-  }
-
-  .reel-date {
-    font-size: 12px;
-    color: var(--text3);
-    margin-bottom: 20px;
-  }
-
-  .reel-views {
-    font-size: 42px;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--orange), var(--gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .reel-card:not(.featured) .reel-views {
-    font-size: 32px;
-  }
-
-  .reel-views-label {
-    font-size: 12px;
-    color: var(--text3);
-    margin-bottom: 20px;
-    font-weight: 500;
-  }
-
-  .reel-metrics {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .reel-metric {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .metric-val {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .metric-lbl {
-    font-size: 11px;
-    color: var(--text3);
-  }
-
-  .watch-bar-wrap {
-    margin-top: 20px;
-    height: 3px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .watch-bar {
-    height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--orange), var(--gold));
-  }
-
-  .watch-time-label {
-    font-size: 11px;
-    color: var(--text3);
-    margin-top: 6px;
-  }
-
-  /* ── CONTENT PILLARS ── */
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-  }
-
-  .pillar-card {
-    background: var(--card);
-    border: 0.5px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .pillar-card:hover {
-    border-color: rgba(255,107,53,0.3);
-    transform: translateY(-3px);
-  }
-
-  .pillar-icon {
-    font-size: 36px;
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .pillar-title {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-
-  .pillar-desc {
-    font-size: 14px;
-    color: var(--text2);
-    line-height: 1.6;
-  }
-
-  /* ── TOPICS ── */
-  .topics-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .topic-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 0;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .topic-row:last-child { border-bottom: none; }
-
-  .topic-emoji {
-    font-size: 28px;
-    width: 44px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-
-  .topic-info { flex: 1; }
-
-  .topic-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 3px;
-  }
-
-  .topic-desc {
-    font-size: 13px;
-    color: var(--text3);
-  }
-
-  .topic-bar-wrap {
-    width: 120px;
-    height: 4px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 2px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .topic-bar {
-    height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--orange), var(--gold));
-  }
-
-  /* ── PRODUCTION STACK ── */
-  .stack-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .stack-pill {
-    background: var(--card);
-    border: 0.5px solid var(--border);
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text2);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .stack-pill:hover {
-    border-color: var(--orange);
-    color: var(--text);
-  }
-
-  .stack-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--orange);
-    flex-shrink: 0;
-  }
-
-  /* ── SERVICES ── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-  }
-
-  .service-card {
-    background: var(--card);
-    border: 0.5px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .service-card:hover {
-    border-color: rgba(255,107,53,0.3);
-    transform: translateY(-3px);
-  }
-
-  .service-icon {
-    font-size: 32px;
-    margin-bottom: 14px;
-    display: block;
-  }
-
-  .service-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  .service-desc {
-    font-size: 14px;
-    color: var(--text2);
-    line-height: 1.6;
-  }
-
-  /* ── BRAND COLLAB ── */
-  .collab-card {
-    background: var(--card);
-    border: 0.5px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    max-width: 600px;
-  }
-
-  .collab-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--orange), var(--gold));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
-  }
-
-  .collab-name {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 3px;
-  }
-
-  .collab-type {
-    font-size: 13px;
-    color: var(--text3);
-    margin-bottom: 12px;
-  }
-
-  .collab-desc {
-    font-size: 14px;
-    color: var(--text2);
-    line-height: 1.7;
-  }
-
-  /* ── QUOTE ── */
-  .quote-section {
-    padding: 100px 24px;
-    background: var(--dark2);
-    text-align: center;
-  }
-
-  .quote-inner {
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
-  blockquote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(22px, 3vw, 34px);
-    color: var(--text);
-    line-height: 1.4;
-    margin-bottom: 20px;
-  }
-
-  blockquote span {
-    background: linear-gradient(135deg, var(--orange), var(--gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-style: normal;
-    font-weight: 700;
-  }
-
-  .quote-author {
-    font-size: 14px;
-    color: var(--text3);
-    font-weight: 500;
-  }
-
-  /* ── CONTACT ── */
-  .contact-section {
-    text-align: center;
-    padding: 100px 24px 140px;
-  }
-
-  .contact-inner {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .contact-links {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
-
-  .contact-link {
-    background: var(--card);
-    border: 0.5px solid var(--border);
-    color: var(--text2);
-    padding: 12px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: border-color 0.2s, color 0.2s, transform 0.2s;
-  }
-
-  .contact-link:hover {
-    border-color: var(--orange);
-    color: var(--orange);
-    transform: translateY(-2px);
-  }
-
-  .contact-email {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 10px 18px;
-  }
-
-  .contact-email .contact-sub {
-    font-size: 12px;
-    color: var(--text3);
-    font-weight: 400;
-    line-height: 1;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--dark2);
-    border-top: 0.5px solid var(--border);
-    text-align: center;
-    padding: 32px 24px;
-    font-size: 13px;
-    color: var(--text3);
-  }
-
-  footer span {
-    color: var(--orange);
-  }
-
-  /* ── ANIMATIONS ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    section { padding: 70px 20px; }
-    .reel-card.featured { grid-column: auto; }
-    .collab-card { flex-direction: column; }
-    .stat-num { font-size: 30px; }
-  }
+:root{
+  --orange:#FF6B35; --gold:#FF9F1C;
+  --dark:#0a0a0a; --card:#161616; --card2:#1c1c1c;
+  --border:rgba(255,255,255,.08); --border2:rgba(255,107,53,.3);
+  --text:#fff; --text2:#aaa; --text3:#666;
+  --r:14px;
+}
+:root[data-theme="light"]{ --dark:#0a0a0a; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;
+  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;
+  justify-content:space-between;padding:14px 32px;background:rgba(10,10,10,.85);
+  backdrop-filter:blur(12px);border-bottom:.5px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;
+  background:linear-gradient(135deg,var(--orange),var(--gold));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  text-decoration:none}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{background:linear-gradient(135deg,var(--orange),var(--gold));color:#fff!important;
+  padding:8px 20px;border-radius:20px;font-weight:600!important}
+@media(max-width:860px){.nav-links li:not(:last-child){display:none}nav{padding:12px 18px}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:130px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(255,107,53,.12) 0,transparent 70%)}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:820px}
+.emblem{font-size:76px;line-height:1;margin-bottom:22px;display:block;animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(prefers-reduced-motion:reduce){.emblem{animation:none}}
+.badge{display:inline-block;background:rgba(255,107,53,.15);border:1px solid rgba(255,107,53,.4);
+  color:var(--orange);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 18px;border-radius:20px;margin-bottom:22px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,78px);font-weight:700;
+  line-height:1.05;margin-bottom:8px;background:linear-gradient(135deg,#fff 0,#ffcba4 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-handle{font-size:20px;color:var(--orange);font-weight:500;margin-bottom:18px;
+  text-decoration:none;display:inline-block}
+.hero-tagline{font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(19px,3vw,27px);color:var(--text2);margin:0 auto 34px;max-width:520px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:44px}
+.tag{background:rgba(255,255,255,.06);border:.5px solid var(--border);color:var(--text2);
+  font-size:13px;padding:6px 16px;border-radius:20px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--orange),var(--gold));color:#fff;
+  padding:14px 32px;border-radius:30px;font-size:15px;font-weight:600;text-decoration:none;
+  box-shadow:0 4px 24px rgba(255,107,53,.35);transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,107,53,.5)}
+.btn-outline{background:transparent;color:var(--text);padding:14px 32px;border-radius:30px;
+  font-size:15px;font-weight:600;text-decoration:none;border:1px solid var(--border);
+  transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+
+/* SECTIONS */
+section{padding:92px 24px;max-width:1100px;margin:0 auto}
+.slabel{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:12px}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,42px);font-weight:700;
+  line-height:1.15;margin-bottom:14px}
+.sintro{color:var(--text2);max-width:62ch;margin-bottom:44px;font-size:16px}
+
+/* STATS */
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;
+  max-width:1000px;margin:0 auto}
+.statbox{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:26px 18px;text-align:center}
+.statbox .v{font-family:'Playfair Display',serif;font-size:clamp(28px,3.6vw,40px);font-weight:700;
+  line-height:1.05;background:linear-gradient(135deg,var(--orange),var(--gold));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  overflow-wrap:anywhere}
+.statbox .l{font-size:12.5px;color:var(--text2);margin-top:8px;letter-spacing:.03em}
+
+/* REELS */
+.reelgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px}
+.reel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:26px;transition:border-color .25s}
+.reel:hover{border-color:var(--border2)}
+.reel.hero-reel{border-color:var(--border2);background:linear-gradient(160deg,#1b1310 0,var(--card) 60%)}
+.reel-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.pill{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:20px;background:rgba(255,107,53,.15);color:var(--orange);
+  border:1px solid rgba(255,107,53,.35)}
+.pill.cat{background:rgba(255,255,255,.06);color:var(--text2);border-color:var(--border)}
+.reel h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;line-height:1.35;
+  margin-bottom:8px}
+.reel .when{font-size:12.5px;color:var(--text3);margin-bottom:20px}
+.reel .big{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;line-height:1;
+  color:var(--gold)}
+.reel .biglbl{font-size:12px;color:var(--text2);margin-top:6px;margin-bottom:20px}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:12px;
+  padding-top:18px;border-top:1px solid var(--border)}
+.metric .m{font-size:17px;font-weight:700}
+.metric .k{font-size:11.5px;color:var(--text3);margin-top:2px}
+.reel .foot{margin-top:18px;font-size:12.5px;color:var(--text3);line-height:1.5}
+.reel .foot a{color:var(--orange);text-decoration:none;font-weight:600}
+.reel .foot a:hover{text-decoration:underline}
+
+/* INSIGHT */
+.insight{background:linear-gradient(135deg,rgba(255,107,53,.12),rgba(255,159,28,.05));
+  border:1px solid var(--border2);border-radius:var(--r);padding:34px;text-align:center;margin-top:26px}
+.insight .ic{font-size:34px;margin-bottom:12px}
+.insight h3{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;margin-bottom:10px}
+.insight p{color:var(--text2);max-width:64ch;margin:0 auto;font-size:15px}
+
+.more{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2px;
+  background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.more li{background:var(--card);padding:15px 20px;display:flex;justify-content:space-between;
+  gap:18px;align-items:baseline}
+.more .ttl{font-size:14.5px}
+.more .vw{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;
+  color:var(--gold);white-space:nowrap}
+
+.brandband{padding-top:70px;padding-bottom:10px}
+.brandband .c{background:linear-gradient(150deg,#1d1512 0,var(--card) 65%);
+  border-color:var(--border2);padding:32px}
+.brandband .c h3{font-family:'Playfair Display',serif;font-size:23px}
+.brandband .c .meta{font-size:13px;letter-spacing:.04em}
+
+/* CARD GRIDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:20px}
+.c{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px;
+  transition:border-color .25s,transform .25s}
+.c:hover{border-color:var(--border2);transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){.c:hover{transform:none}}
+.c .ic{font-size:28px;margin-bottom:14px}
+.c h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.c p{color:var(--text2);font-size:14.5px}
+.c .meta{color:var(--orange);font-size:12.5px;font-weight:600;margin-bottom:10px}
+
+/* TOPICS */
+.topics{display:grid;gap:12px}
+.topic{display:flex;gap:16px;align-items:flex-start;background:var(--card);
+  border:1px solid var(--border);border-radius:var(--r);padding:18px 22px}
+.topic .ic{font-size:22px;line-height:1.3}
+.topic h4{font-size:15.5px;font-weight:700;margin-bottom:3px}
+.topic p{font-size:13.5px;color:var(--text2)}
+
+/* CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:var(--card);border:1px solid var(--border);color:var(--text2);
+  border-radius:24px;padding:9px 18px;font-size:13.5px}
+.chip.hot{border-color:var(--border2);color:var(--orange)}
+.subhead{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text3);margin:34px 0 14px}
+
+/* QUOTE */
+.quote{text-align:center;padding:70px 24px;max-width:860px;margin:0 auto}
+.quote blockquote{font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(20px,3.1vw,30px);line-height:1.45}
+.quote cite{display:block;margin-top:20px;font-style:normal;font-size:14px;color:var(--orange)}
+
+/* CONTACT */
+.contact{text-align:center}
+.clinks{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:34px}
+.clink{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 30px;min-width:210px;text-decoration:none;transition:border-color .25s}
+.clink:hover{border-color:var(--orange)}
+.clink .t{font-size:15px;font-weight:600;margin-bottom:4px}
+.clink .s{font-size:13px;color:var(--text2);word-break:break-word}
+footer{border-top:1px solid var(--border);padding:34px 24px;text-align:center;
+  color:var(--text3);font-size:13.5px}
+.stamp{margin-top:8px;font-size:12.5px;color:var(--text3)}
+
+/* ADMIN */
+#editBtn{position:fixed;right:20px;bottom:20px;z-index:120;
+  background:linear-gradient(135deg,var(--orange),var(--gold));color:#fff;border:0;
+  border-radius:30px;padding:14px 24px;cursor:pointer;font-family:inherit;font-size:14.5px;
+  font-weight:600;box-shadow:0 6px 26px rgba(255,107,53,.45);display:none}
+#panel{position:fixed;inset:0;z-index:200;background:var(--dark);overflow-y:auto;display:none}
+body.panel-open{overflow:hidden}
+.pbar{position:sticky;top:0;z-index:3;background:rgba(10,10,10,.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);padding:14px 22px;display:flex;gap:10px;
+  align-items:center;flex-wrap:wrap}
+.pbar h3{font-family:'Playfair Display',serif;font-size:18px;margin-right:auto}
+#msg{font-size:13px;color:var(--text2);width:100%;order:3}
+@media(min-width:700px){#msg{width:auto;order:0;margin-right:10px}}
+.pbody{max-width:860px;margin:0 auto;padding:24px 22px 140px}
+fieldset{border:0;border-top:1px solid var(--border);margin-bottom:6px;padding:26px 0 6px}
+legend{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;
+  color:var(--orange);padding-right:10px}
+label{display:block;font-size:12px;color:var(--text3);margin:13px 0 5px;letter-spacing:.02em}
+input,textarea{width:100%;font-family:inherit;font-size:15px;color:var(--text);
+  background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+textarea{min-height:74px;resize:vertical;line-height:1.5}
+input::placeholder,textarea::placeholder{color:#555}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0 16px}
+.wide{grid-column:1/-1}
+.row{background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:16px 18px 18px;margin-top:14px;position:relative}
+.rowh{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3)}
+.del{position:absolute;top:12px;right:12px;background:transparent;border:1px solid var(--border);
+  color:var(--text3);border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;padding:4px 10px}
+.del:hover{color:var(--orange);border-color:var(--orange)}
+.add{margin-top:14px;background:transparent;border:1.5px dashed var(--border);color:var(--text2);
+  border-radius:10px;cursor:pointer;font-family:inherit;font-size:14px;padding:11px 16px;width:100%}
+.add:hover{border-color:var(--orange);color:var(--orange)}
+.btn{background:linear-gradient(135deg,var(--orange),var(--gold));color:#fff;border:0;
+  border-radius:24px;padding:11px 22px;cursor:pointer;font-family:inherit;font-size:14.5px;font-weight:600}
+.btn[disabled]{opacity:.55;cursor:default}
+.btn.sec{background:transparent;color:var(--text2);border:1px solid var(--border)}
+.hint{font-size:12.5px;color:var(--text3);margin-top:6px}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">🔱 timelinebyharsh</div>
+  <a href="#top" class="nav-logo" data-render="logo">🔱 timelinebyharsh</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+    <li><a href="#brands">Brands</a></li>
     <li><a href="#proof">Proof of Work</a></li>
-    <li><a href="#pillars">Content</a></li>
+    <li><a href="#content">Content</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#contact" class="nav-cta">Work With Me</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<div class="hero" id="about">
-  <div>
-    <span class="hero-om">🔱</span>
-    <div class="hero-badge">Content Creator · Delhi, India</div>
-    <h1>Harsh Upadhyay</h1>
-    <div class="hero-handle">@timelinebyharsh</div>
-    <p class="hero-tagline">
-      "<span>Sanatan.</span> <span>Science.</span> <span>Sach.</span>"
-    </p>
-    <div class="hero-tags">
-      <span class="hero-tag">🕉️ Sanatan Dharma</span>
-      <span class="hero-tag">⚛️ Science × Spirituality</span>
-      <span class="hero-tag">📱 Short-form Video</span>
-      <span class="hero-tag">🎬 Video Editing</span>
-      <span class="hero-tag">🤖 AI-powered Workflow</span>
-    </div>
-    <div class="hero-btns">
-      <a href="#proof" class="btn-primary">🔥 See Proof of Work</a>
-      <a href="#contact" class="btn-outline">Work With Me</a>
-    </div>
-  </div>
-</div>
+<header class="hero" id="top">
+  <div class="hero-inner" data-render="hero"></div>
+</header>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item fade-up">
-      <div class="stat-num">5M+</div>
-      <div class="stat-lbl">Total Views</div>
-    </div>
-    <div class="stat-item fade-up">
-      <div class="stat-num">432K+</div>
-      <div class="stat-lbl">Total Likes</div>
-    </div>
-    <div class="stat-item fade-up">
-      <div class="stat-num">96K+</div>
-      <div class="stat-lbl">Total Shares</div>
-    </div>
-    <div class="stat-item fade-up">
-      <div class="stat-num">1.1M</div>
-      <div class="stat-lbl">Views / 30 Days</div>
-    </div>
-    <div class="stat-item fade-up">
-      <div class="stat-num">2,958</div>
-      <div class="stat-lbl">Followers</div>
-    </div>
-    <div class="stat-item fade-up">
-      <div class="stat-num">100+</div>
-      <div class="stat-lbl">Posts Published</div>
-    </div>
-  </div>
-</div>
-
-<!-- PROOF OF WORK -->
-<div class="pow-section" id="proof">
-  <div class="pow-inner">
-    <div class="section-label fade-up">Proof of Work</div>
-    <h2 class="section-title fade-up">Real Numbers. Real Reach.</h2>
-    <p class="section-sub fade-up">
-      Organic viral growth — no paid promotion. Every view earned through research-backed storytelling in Hinglish.
-    </p>
-
-    <div class="reel-grid">
-
-      <!-- FEATURED: 2M reel -->
-      <div class="reel-card featured fade-up">
-        <div class="viral-pill">🔥 Viral — 2M Views</div>
-        <div class="reel-topic">Science × Vedas</div>
-        <div class="reel-title">NASA vs Shreemad Bhagwat Purana — 140 Trillion Water Found in Universe</div>
-        <div class="reel-date">11 December 2025 · Duration 1:12</div>
-        <div class="reel-views">2,004,759</div>
-        <div class="reel-views-label">Total Views (Instagram)</div>
-        <div class="reel-metrics">
-          <div class="reel-metric">
-            <span class="metric-val">231K</span>
-            <span class="metric-lbl">❤️ Likes</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">45K</span>
-            <span class="metric-lbl">📤 Shares</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">8.7K</span>
-            <span class="metric-lbl">🔖 Saves</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">806</span>
-            <span class="metric-lbl">💬 Comments</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">289,192</span>
-            <span class="metric-lbl">⚡ Interactions</span>
-          </div>
-        </div>
-        <div class="watch-bar-wrap">
-          <div class="watch-bar" style="width: 100%"></div>
-        </div>
-        <div class="watch-time-label">Watch time: 1 year 355 days · 1,850 profile visits</div>
-      </div>
-
-      <!-- 1M reel -->
-      <div class="reel-card fade-up">
-        <div class="viral-pill">🔥 1M+ Views</div>
-        <div class="reel-topic">Shiv Stotra</div>
-        <div class="reel-title">Bhagwan Shiv ke Char Pramukh Stotra</div>
-        <div class="reel-date">28 November 2025 · Duration 0:57</div>
-        <div class="reel-views">1,054,441</div>
-        <div class="reel-views-label">Total Views</div>
-        <div class="reel-metrics">
-          <div class="reel-metric">
-            <span class="metric-val">124K</span>
-            <span class="metric-lbl">❤️ Likes</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">37K</span>
-            <span class="metric-lbl">📤 Shares</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">33K</span>
-            <span class="metric-lbl">🔖 Saves</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">198,953</span>
-            <span class="metric-lbl">⚡ Interactions</span>
-          </div>
-        </div>
-        <div class="watch-bar-wrap">
-          <div class="watch-bar" style="width: 53%"></div>
-        </div>
-        <div class="watch-time-label">Watch time: 190 days</div>
-      </div>
-
-      <!-- 336K reel -->
-      <div class="reel-card fade-up">
-        <div class="reel-topic">Mythology</div>
-        <div class="reel-title">Kuldevta — Share with your Family</div>
-        <div class="reel-date">18 January 2026 · Duration 1:15</div>
-        <div class="reel-views">336,711</div>
-        <div class="reel-views-label">Total Views</div>
-        <div class="reel-metrics">
-          <div class="reel-metric">
-            <span class="metric-val">44K</span>
-            <span class="metric-lbl">❤️ Likes</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">8K</span>
-            <span class="metric-lbl">📤 Shares</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">5.2K</span>
-            <span class="metric-lbl">🔖 Saves</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">61,532</span>
-            <span class="metric-lbl">⚡ Interactions</span>
-          </div>
-        </div>
-        <div class="watch-bar-wrap">
-          <div class="watch-bar" style="width: 17%"></div>
-        </div>
-        <div class="watch-time-label">Watch time: 81 days · 1,559 profile visits</div>
-      </div>
-
-      <!-- 236K reel -->
-      <div class="reel-card fade-up">
-        <div class="reel-topic">Vishnu Purana</div>
-        <div class="reel-title">Bhagwan Vishnu ke Dashavtar</div>
-        <div class="reel-date">27 December 2025 · Duration 1:49</div>
-        <div class="reel-views">236,181</div>
-        <div class="reel-views-label">Total Views</div>
-        <div class="reel-metrics">
-          <div class="reel-metric">
-            <span class="metric-val">33K</span>
-            <span class="metric-lbl">❤️ Likes</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">6.5K</span>
-            <span class="metric-lbl">📤 Shares</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">1.6K</span>
-            <span class="metric-lbl">🔖 Saves</span>
-          </div>
-          <div class="reel-metric">
-            <span class="metric-val">42,238</span>
-            <span class="metric-lbl">⚡ Interactions</span>
-          </div>
-        </div>
-        <div class="watch-bar-wrap">
-          <div class="watch-bar" style="width: 12%"></div>
-        </div>
-        <div class="watch-time-label">Watch time: 110 days</div>
-      </div>
-
-    </div>
-
-    <!-- Key insight callout -->
-    <div style="margin-top: 32px; background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.25); border-radius: 14px; padding: 24px 28px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-      <div style="font-size: 32px;">💡</div>
-      <div>
-        <div style="font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px;">2M Views with only ~3K Followers</div>
-        <div style="font-size: 14px; color: var(--text2); line-height: 1.6;">100% organic reach — no paid promotion. Content quality drives discovery, not follower count. This is what research-backed Hinglish storytelling does.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTENT PILLARS -->
-<section id="pillars">
-  <div class="section-label fade-up">Content Strategy</div>
-  <h2 class="section-title fade-up">Four Pillars of @timelinebyharsh</h2>
-  <p class="section-sub fade-up">Every piece of content falls under one of these pillars — each one designed to educate, inspire, and spark curiosity about Sanatan Dharma.</p>
-
-  <div class="pillars-grid">
-    <div class="pillar-card fade-up">
-      <span class="pillar-icon">🕉️</span>
-      <div class="pillar-title">Mythology Decoded</div>
-      <p class="pillar-desc">Shiv Purana, Vishnu Purana, Vedic texts — ancient stories told with modern context and verifiable references.</p>
-    </div>
-    <div class="pillar-card fade-up">
-      <span class="pillar-icon">⚛️</span>
-      <div class="pillar-title">Science × Spirituality</div>
-      <p class="pillar-desc">Quantum Physics meets Lord Shiva. Karma meets Neuroscience. Ancient wisdom, modern proof. Every claim cited.</p>
-    </div>
-    <div class="pillar-card fade-up">
-      <span class="pillar-icon">🔬</span>
-      <div class="pillar-title">Vedas × Research</div>
-      <p class="pillar-desc">Research-backed scripts with citations. No blind faith — just Sach (truth). Making ancient wisdom verifiable.</p>
-    </div>
-    <div class="pillar-card fade-up">
-      <span class="pillar-icon">🌌</span>
-      <div class="pillar-title">Reincarnation & Cosmos</div>
-      <p class="pillar-desc">Ancient Indian cosmology explained through modern astrophysics. Consciousness, universe, and Sanatan philosophy.</p>
-    </div>
-  </div>
-
-  <div style="margin-top: 64px;">
-    <div class="section-label fade-up" style="margin-bottom: 24px;">Signature Topics</div>
-    <div class="topics-list">
-      <div class="topic-row fade-up">
-        <div class="topic-emoji">⚡</div>
-        <div class="topic-info">
-          <div class="topic-name">Lord Shiva × Quantum Physics</div>
-          <div class="topic-desc">Nataraja as the cosmic dance of subatomic particles</div>
-        </div>
-        <div class="topic-bar-wrap"><div class="topic-bar" style="width: 95%"></div></div>
-      </div>
-      <div class="topic-row fade-up">
-        <div class="topic-emoji">🧠</div>
-        <div class="topic-info">
-          <div class="topic-name">Karma × Neuroscience</div>
-          <div class="topic-desc">Neural pathways and the science of cause and effect</div>
-        </div>
-        <div class="topic-bar-wrap"><div class="topic-bar" style="width: 88%"></div></div>
-      </div>
-      <div class="topic-row fade-up">
-        <div class="topic-emoji">📿</div>
-        <div class="topic-info">
-          <div class="topic-name">Rudraksha × Electromagnetic Science</div>
-          <div class="topic-desc">Proven electromagnetic properties of sacred beads</div>
-        </div>
-        <div class="topic-bar-wrap"><div class="topic-bar" style="width: 80%"></div></div>
-      </div>
-      <div class="topic-row fade-up">
-        <div class="topic-emoji">♾️</div>
-        <div class="topic-info">
-          <div class="topic-name">Reincarnation × Quantum Mechanics</div>
-          <div class="topic-desc">Conservation of consciousness energy</div>
-        </div>
-        <div class="topic-bar-wrap"><div class="topic-bar" style="width: 74%"></div></div>
-      </div>
-      <div class="topic-row fade-up">
-        <div class="topic-emoji">🌊</div>
-        <div class="topic-info">
-          <div class="topic-name">Vedic Cosmology × NASA Science</div>
-          <div class="topic-desc">How ancient texts predicted the expanding universe</div>
-        </div>
-        <div class="topic-bar-wrap"><div class="topic-bar" style="width: 100%"></div></div>
-      </div>
-    </div>
-  </div>
+<section id="brands" class="brandband">
+  <p class="slabel">Working With Brands</p>
+  <h2 class="stitle" data-render="brandTitle"></h2>
+  <p class="sintro" data-render="brandIntro"></p>
+  <div class="cards" data-render="brands"></div>
 </section>
 
-<!-- PRODUCTION STACK -->
-<div class="pow-section">
-  <div class="pow-inner">
-    <div class="section-label fade-up">Production Stack</div>
-    <h2 class="section-title fade-up">Tools & Workflow</h2>
-    <p class="section-sub fade-up">AI-automated content pipeline — from research discovery to final reel, built for consistency and quality.</p>
+<section id="proof">
+  <p class="slabel">Proof of Work</p>
+  <h2 class="stitle">Real Numbers. Real Reach.</h2>
+  <p class="sintro" data-render="proofIntro"></p>
+  <div class="statgrid" data-render="stats"></div>
+  <div style="height:44px"></div>
+  <div class="reelgrid" data-render="reels"></div>
+  <div data-render="insight"></div>
+  <p class="subhead" data-render="moreHead"></p>
+  <div data-render="more"></div>
+</section>
 
-    <div class="stack-grid">
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Adobe Premiere Pro</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>CapCut Pro</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Canva Pro</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Claude AI (Scripting)</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Notion (Content Calendar)</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Apify (Research Scraping)</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Brave Search MCP</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>AI Automated Workflow</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Research-backed Scripts</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Hinglish Storytelling</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Instagram Reels</div>
-      <div class="stack-pill fade-up"><div class="stack-dot"></div>Carousel Design</div>
-    </div>
-  </div>
-</div>
+<section id="content">
+  <p class="slabel">Content Strategy</p>
+  <h2 class="stitle" data-render="pillarTitle"></h2>
+  <p class="sintro" data-render="pillarIntro"></p>
+  <div class="cards" data-render="pillars"></div>
+  <p class="subhead" data-render="topicHead"></p>
+  <div class="topics" data-render="topics"></div>
+</section>
 
-<!-- SERVICES -->
+<section id="stack">
+  <p class="slabel">Production Stack</p>
+  <h2 class="stitle">Tools &amp; Workflow</h2>
+  <p class="sintro" data-render="stackIntro"></p>
+  <div class="chips" data-render="tools"></div>
+  <p class="subhead" data-render="skillHead"></p>
+  <div class="chips" data-render="skills"></div>
+</section>
+
 <section id="services">
-  <div class="section-label fade-up">What I Offer</div>
-  <h2 class="section-title fade-up">Services</h2>
-  <p class="section-sub fade-up">From scripting to editing to full content strategy — I bring the complete creator toolkit to your brand.</p>
-
-  <div class="services-grid">
-    <div class="service-card fade-up">
-      <span class="service-icon">📝</span>
-      <div class="service-title">Reel Scripting</div>
-      <p class="service-desc">Research-backed, Hinglish scripts for spiritual-science content creators. Every claim verified, every hook tested.</p>
-    </div>
-    <div class="service-card fade-up">
-      <span class="service-icon">🎬</span>
-      <div class="service-title">Video Editing</div>
-      <p class="service-desc">End-to-end editing for brands — cuts, captions, color grading, sound design. Export-ready for Instagram.</p>
-    </div>
-    <div class="service-card fade-up">
-      <span class="service-icon">📊</span>
-      <div class="service-title">Carousel Design</div>
-      <p class="service-desc">Slide-by-slide Instagram carousels with visual storytelling. Canva Pro + custom design system.</p>
-    </div>
-    <div class="service-card fade-up">
-      <span class="service-icon">🤖</span>
-      <div class="service-title">AI Content Workflows</div>
-      <p class="service-desc">Automated research → script → calendar pipelines using Claude + Notion + Apify. Scale your output.</p>
-    </div>
-    <div class="service-card fade-up">
-      <span class="service-icon">📱</span>
-      <div class="service-title">UGC Content</div>
-      <p class="service-desc">Authentic user-generated style content for brands targeting Indian audiences. Native Hinglish storytelling.</p>
-    </div>
-    <div class="service-card fade-up">
-      <span class="service-icon">🧭</span>
-      <div class="service-title">Content Strategy</div>
-      <p class="service-desc">Full content calendar, audience research matrix, topic bank, and 12-week growth plan for creators.</p>
-    </div>
-  </div>
-
-  <!-- Brand Collab -->
-  <div style="margin-top: 56px;">
-    <div class="section-label fade-up" style="margin-bottom: 24px;">Brand Experience</div>
-    <div class="collab-card fade-up">
-      <div class="collab-avatar">✂️</div>
-      <div>
-        <div class="collab-name">Hair Mastery, Zurich</div>
-        <div class="collab-type">International Brand · Video Editing Collaboration</div>
-        <p class="collab-desc">Edited brand content for an international hair brand based in Switzerland. Delivered polished short-form videos using Premiere Pro and CapCut Pro — on-brand, on-time, for a global audience.</p>
-      </div>
-    </div>
-  </div>
+  <p class="slabel">What I Offer</p>
+  <h2 class="stitle">Services</h2>
+  <p class="sintro" data-render="servicesIntro"></p>
+  <div class="cards" data-render="services"></div>
 </section>
 
-<!-- QUOTE -->
-<div class="quote-section">
-  <div class="quote-inner">
-    <blockquote>
-      "Har reel ek sach — backed by <span>research</span>, told in <span>Hinglish</span>, rooted in <span>Sanatan Dharma</span>."
-    </blockquote>
-    <div class="quote-author">— Harsh Upadhyay, @timelinebyharsh</div>
+<div class="quote" data-render="quote"></div>
+
+<section id="contact" class="contact">
+  <p class="slabel">Get In Touch</p>
+  <h2 class="stitle">Let's Work Together</h2>
+  <p class="sintro" style="margin-left:auto;margin-right:auto" data-render="contactIntro"></p>
+  <div class="clinks" data-render="contact"></div>
+</section>
+
+<footer data-render="footer"></footer>
+
+<button id="editBtn" type="button">Edit portfolio</button>
+
+<div id="panel" role="dialog" aria-modal="true" aria-label="Edit portfolio">
+  <div class="pbar">
+    <h3>Edit portfolio</h3>
+    <span id="msg"></span>
+    <button class="btn sec" type="button" id="cancelBtn">Close</button>
+    <button class="btn" type="button" id="saveBtn">Save &amp; publish</button>
+  </div>
+  <div class="pbody">
+    <fieldset>
+      <legend>Profile</legend>
+      <div class="fgrid">
+        <div><label for="f_emblem">Emblem</label><input id="f_emblem"></div>
+        <div><label for="f_name">Name</label><input id="f_name"></div>
+        <div><label for="f_handle">Handle</label><input id="f_handle"></div>
+        <div><label for="f_badge">Badge line</label><input id="f_badge"></div>
+        <div class="wide"><label for="f_tagline">Tagline</label><input id="f_tagline"></div>
+        <div><label for="f_email">Email</label><input id="f_email"></div>
+        <div><label for="f_site">Second site URL</label><input id="f_site"></div>
+        <div><label for="f_siteLabel">Label for that site</label><input id="f_siteLabel"></div>
+        <div><label for="f_yt">YouTube URL</label><input id="f_yt"></div>
+        <div><label for="f_verified">Verified? (yes / no)</label><input id="f_verified"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Hero tags</legend>
+      <div id="l_tags"></div>
+      <button class="add" type="button" data-add="tags">Add a tag</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Headline numbers</legend>
+      <p class="hint">These are the six boxes under "Real Numbers. Real Reach." Update these after every big month.</p>
+      <div id="l_stats"></div>
+      <button class="add" type="button" data-add="stats">Add a number</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Top reels</legend>
+      <p class="hint">Leave a metric blank to hide it on that card.</p>
+      <div id="l_reels"></div>
+      <button class="add" type="button" data-add="reels">Add a reel</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>More top performers</legend>
+      <div id="l_more"></div>
+      <button class="add" type="button" data-add="more">Add a reel</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Insight callout</legend>
+      <div class="fgrid">
+        <div><label for="f_insIc">Icon</label><input id="f_insIc"></div>
+        <div><label for="f_insTitle">Headline</label><input id="f_insTitle"></div>
+        <div class="wide"><label for="f_insBody">Body</label><textarea id="f_insBody"></textarea></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Content pillars</legend>
+      <div id="l_pillars"></div>
+      <button class="add" type="button" data-add="pillars">Add a pillar</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Signature topics</legend>
+      <div id="l_topics"></div>
+      <button class="add" type="button" data-add="topics">Add a topic</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tools</legend>
+      <div id="l_tools"></div>
+      <button class="add" type="button" data-add="tools">Add a tool</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Skills</legend>
+      <div id="l_skills"></div>
+      <button class="add" type="button" data-add="skills">Add a skill</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Services</legend>
+      <div id="l_services"></div>
+      <button class="add" type="button" data-add="services">Add a service</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Brand experience</legend>
+      <div id="l_brands"></div>
+      <button class="add" type="button" data-add="brands">Add a brand</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Closing quote</legend>
+      <label for="f_qText">Quote</label><textarea id="f_qText"></textarea>
+      <label for="f_qBy">Attribution</label><input id="f_qBy">
+    </fieldset>
   </div>
 </div>
 
-<!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <div class="contact-inner">
-    <div class="section-label fade-up">Get In Touch</div>
-    <h2 class="section-title fade-up">Let's Work Together</h2>
-    <p class="section-sub fade-up" style="margin: 0 auto 0;">
-      Whether you're a brand looking for authentic Indian audience reach, or a creator wanting to scale — let's connect.
-    </p>
-    <div class="contact-links">
-      <a href="https://instagram.com/timelinebyharsh" class="contact-link" target="_blank">📸 @timelinebyharsh</a>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=timelinebyharsh@gmail.com&su=Portfolio%20Inquiry" class="contact-link contact-email" title="timelinebyharsh@gmail.com" aria-label="Email me at timelinebyharsh@gmail.com" target="_blank" rel="noopener noreferrer">
-        <span class="contact-main">✉️ Email me</span>
-        <span class="contact-sub">timelinebyharsh@gmail.com</span>
-      </a>
-      <a href="https://harsh-creates.vercel.app/" class="contact-link" target="_blank">🌐 My Portfolio</a>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <p>Made with <span>🔱</span> by Harsh Upadhyay · @timelinebyharsh · <span>Sanatan. Science. Sach.</span></p>
-</footer>
+<script id="portfolio-data" type="application/json">{
+"profile": {
+"emblem": "🔱",
+"name": "Harsh Upadhyay",
+"handle": "timelinebyharsh",
+"badge": "Verified Creator · Delhi, India",
+"tagline": "Sanatan. Science. Sach.",
+"email": "timelinebyharsh@gmail.com",
+"site": "https://harsh-creates.vercel.app/",
+"youtube": "https://youtube.com/@timelinebyharsh",
+"verified": "yes",
+"siteLabel": "Web & AI Systems"
+},
+"tags": [
+{
+"label": "🕉️ Sanatan Dharma"
+},
+{
+"label": "⚛️ Science × Spirituality"
+},
+{
+"label": "📱 Short-form Video"
+},
+{
+"label": "🎬 Video Editing"
+},
+{
+"label": "🤖 AI-powered Workflow"
+}
+],
+"proofIntro": "Organic viral growth — no paid promotion. Every view earned through research-backed storytelling in Hinglish. Now a verified account with 240 posts published.",
+"stats": [
+{
+"value": "12M+",
+"label": "Total Views"
+},
+{
+"value": "500K+",
+"label": "Total Likes"
+},
+{
+"value": "96K+",
+"label": "Total Shares"
+},
+{
+"value": "1.1M",
+"label": "Views / 30 Days"
+},
+{
+"value": "6,851",
+"label": "Followers"
+},
+{
+"value": "240",
+"label": "Posts Published"
+}
+],
+"reels": [
+{
+"badge": "🔥 Viral — 2M Views",
+"category": "Science × Vedas",
+"title": "NASA vs Shreemad Bhagwat Purana — 140 Trillion Water Found in Universe",
+"date": "11 December 2025",
+"duration": "1:12",
+"views": "2,288,315",
+"viewsLabel": "Total Views (Instagram)",
+"likes": "260K",
+"shares": "45K",
+"saves": "8.7K",
+"comments": "916",
+"interactions": "289,192",
+"watchtime": "1 year 355 days",
+"visits": "1,850 profile visits",
+"link": ""
+},
+{
+"badge": "🔥 1M+ Views",
+"category": "Shiv Stotra",
+"title": "Bhagwan Shiv ke Char Pramukh Stotra",
+"date": "28 November 2025",
+"duration": "0:57",
+"views": "1,134,471",
+"viewsLabel": "Total Views",
+"likes": "128,579",
+"shares": "37K",
+"saves": "33K",
+"comments": "2,311",
+"interactions": "198,953",
+"watchtime": "190 days",
+"visits": "",
+"link": ""
+},
+{
+"badge": "",
+"category": "Mythology",
+"title": "Kuldevta — Share with your Family",
+"date": "18 January 2026",
+"duration": "1:15",
+"views": "408,000",
+"viewsLabel": "Total Views",
+"likes": "44K",
+"shares": "8K",
+"saves": "5.2K",
+"comments": "",
+"interactions": "61,532",
+"watchtime": "81 days",
+"visits": "1,559 profile visits",
+"link": ""
+},
+{
+"badge": "",
+"category": "Vishnu Purana",
+"title": "Bhagwan Vishnu ke Dashavtar",
+"date": "27 December 2025",
+"duration": "1:49",
+"views": "243,257",
+"viewsLabel": "Total Views",
+"likes": "33,635",
+"shares": "6.5K",
+"saves": "1.6K",
+"comments": "99",
+"interactions": "42,238",
+"watchtime": "110 days",
+"visits": "",
+"link": ""
+},
+{
+"badge": "",
+"category": "Hanuman Bhakti",
+"title": "Hanuman Chalisa — 3, 7, 9, 11, 21, 51 ya 108 paath?",
+"date": "15 September 2026",
+"duration": "1:19",
+"views": "214,067",
+"viewsLabel": "Total Views",
+"likes": "25,073",
+"shares": "",
+"saves": "",
+"comments": "572",
+"interactions": "",
+"watchtime": "",
+"visits": "",
+"link": "https://www.instagram.com/p/DdT7dGEp5SI/"
+},
+{
+"badge": "",
+"category": "Hanuman Bhakti",
+"title": "Hanuman Chalisa padhte waqt ye 3 galtiyan?",
+"date": "7 September 2026",
+"duration": "1:03",
+"views": "204,192",
+"viewsLabel": "Total Views",
+"likes": "25,466",
+"shares": "",
+"saves": "",
+"comments": "204",
+"interactions": "",
+"watchtime": "",
+"visits": "",
+"link": "https://www.instagram.com/p/Dc_Kottpye8/"
+}
+],
+"insight": {
+"icon": "💡",
+"title": "3.4M Views from Two Reels — at 3K Followers",
+"body": "100% organic reach — no paid promotion. Content quality drives discovery, not follower count. Recent reels still clear 90K–110K views each, so the reach is repeatable, not a one-off spike."
+},
+"pillarTitle": "Four Pillars of @timelinebyharsh",
+"pillarIntro": "Every piece of content falls under one of these pillars — each one designed to educate, inspire, and spark curiosity about Sanatan Dharma.",
+"pillars": [
+{
+"icon": "🕉️",
+"title": "Mythology Decoded",
+"body": "Shiv Purana, Vishnu Purana, Vedic texts — ancient stories told with modern context and verifiable references."
+},
+{
+"icon": "⚛️",
+"title": "Science × Spirituality",
+"body": "Quantum Physics meets Lord Shiva. Karma meets Neuroscience. Ancient wisdom, modern proof. Every claim cited."
+},
+{
+"icon": "🔬",
+"title": "Vedas × Research",
+"body": "Research-backed scripts with citations. No blind faith — just Sach (truth). Making ancient wisdom verifiable."
+},
+{
+"icon": "🌌",
+"title": "Reincarnation & Cosmos",
+"body": "Ancient Indian cosmology explained through modern astrophysics. Consciousness, universe, and Sanatan philosophy."
+}
+],
+"topicHead": "Signature Topics",
+"topics": [
+{
+"icon": "⚡",
+"title": "Lord Shiva × Quantum Physics",
+"body": "Nataraja as the cosmic dance of subatomic particles"
+},
+{
+"icon": "🧠",
+"title": "Karma × Neuroscience",
+"body": "Neural pathways and the science of cause and effect"
+},
+{
+"icon": "📿",
+"title": "Rudraksha × Electromagnetic Science",
+"body": "Proven electromagnetic properties of sacred beads"
+},
+{
+"icon": "♾️",
+"title": "Reincarnation × Quantum Mechanics",
+"body": "Conservation of consciousness energy"
+},
+{
+"icon": "🌊",
+"title": "Vedic Cosmology × NASA Science",
+"body": "How ancient texts predicted the expanding universe"
+}
+],
+"stackIntro": "AI-automated content pipeline — from research discovery to final reel, built for consistency and quality.",
+"tools": [
+{
+"name": "Adobe Premiere Pro"
+},
+{
+"name": "CapCut Pro"
+},
+{
+"name": "Canva Pro"
+},
+{
+"name": "Claude AI (Scripting)"
+},
+{
+"name": "Notion (Content Calendar)"
+},
+{
+"name": "Apify (Research Scraping)"
+},
+{
+"name": "Brave Search MCP"
+}
+],
+"skillHead": "How I Work",
+"skills": [
+{
+"name": "AI Automated Workflow"
+},
+{
+"name": "Research-backed Scripts"
+},
+{
+"name": "Hinglish Storytelling"
+},
+{
+"name": "Instagram Reels"
+},
+{
+"name": "Carousel Design"
+}
+],
+"servicesIntro": "From scripting to editing to full content strategy — I bring the complete creator toolkit to your brand.",
+"services": [
+{
+"icon": "📝",
+"title": "Reel Scripting",
+"body": "Research-backed, Hinglish scripts for spiritual-science content creators. Every claim verified, every hook tested."
+},
+{
+"icon": "🎬",
+"title": "Video Editing",
+"body": "End-to-end editing for brands — cuts, captions, color grading, sound design. Export-ready for Instagram."
+},
+{
+"icon": "📊",
+"title": "Carousel Design",
+"body": "Slide-by-slide Instagram carousels with visual storytelling. Canva Pro + custom design system."
+},
+{
+"icon": "🤖",
+"title": "AI Content Workflows",
+"body": "Automated research → script → calendar pipelines using Claude + Notion + Apify. Scale your output."
+},
+{
+"icon": "📱",
+"title": "UGC Content",
+"body": "Authentic user-generated style content for brands targeting Indian audiences. Native Hinglish storytelling."
+},
+{
+"icon": "🧭",
+"title": "Content Strategy",
+"body": "Full content calendar, audience research matrix, topic bank, and 12-week growth plan for creators."
+}
+],
+"brands": [
+{
+"icon": "✂️",
+"name": "Hair Mastery, Zurich",
+"meta": "Verified · 62.4K followers · Social Media Manager",
+"body": "I run the Instagram account for this Switzerland-based hair education brand — an international audience following online classes and live workshops worldwide. Full ownership of the handle: content planning, editing and publishing across 565 posts, using Premiere Pro and CapCut Pro.",
+"link": "https://www.instagram.com/hair__mastery/"
+}
+],
+"quote": {
+"text": "Har reel ek sach — backed by research, told in Hinglish, rooted in Sanatan Dharma.",
+"by": "Harsh Upadhyay, @timelinebyharsh"
+},
+"contactIntro": "Whether you're a brand looking for authentic Indian audience reach, or a creator wanting to scale — let's connect.",
+"updated": "",
+"moreHead": "More Top Performers",
+"more": [
+{
+"title": "Powerful Mantra of Lord Vishnu",
+"views": "290K"
+},
+{
+"title": "भगवान शिव के 4 प्रसिद्ध स्तोत्र",
+"views": "269K"
+},
+{
+"title": "इस सावन व्रत ज़रूर रखिए",
+"views": "215K"
+},
+{
+"title": "Mahashivratri Ki Sabse Powerful Sadhana",
+"views": "182K"
+},
+{
+"title": "राम — Hanuman Bhakti",
+"views": "138K"
+},
+{
+"title": "4 Hanuman Mantras Every Bhakt Should Know",
+"views": "100K"
+},
+{
+"title": "Lanka Main Shivling Kyu Nahi Hai?",
+"views": "57.2K"
+},
+{
+"title": "Bhagwan Narayan ke 3 Secret Mantra",
+"views": "56.8K"
+},
+{
+"title": "Nadi Main Sikke Kyu Dale Jate Hai?",
+"views": "44.2K"
+}
+],
+"brandTitle": "Trusted With an International Brand",
+"brandIntro": "Not just a creator — I run the Instagram presence of a verified international brand, day to day."
+}</script>
 
 <script>
-  // Scroll-triggered fade-up animations
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
+(function(){
+"use strict";
+var T={t:"text",a:"area"};
+var SCHEMA={
+ tags:[["label","Tag"]],
+ stats:[["value","Number"],["label","Label"]],
+ reels:[["title","Title","area"],["category","Category"],["badge","Badge (optional)"],
+        ["date","Date"],["duration","Duration"],["views","Views"],["viewsLabel","Views label"],
+        ["likes","Likes"],["shares","Shares"],["saves","Saves"],["comments","Comments"],
+        ["interactions","Interactions"],["watchtime","Watch time"],["visits","Profile visits"],["link","Link"]],
+ pillars:[["icon","Icon"],["title","Title"],["body","Description","area"]],
+ topics:[["icon","Icon"],["title","Title"],["body","Description","area"]],
+ tools:[["name","Tool"]],
+ skills:[["name","Skill"]],
+ services:[["icon","Icon"],["title","Title"],["body","Description","area"]],
+ brands:[["icon","Icon"],["name","Brand"],["meta","Type of work"],["body","Description","area"],["link","Link"]],
+ more:[["title","Reel"],["views","Views"]]
+};
+var LISTS={tags:"l_tags",stats:"l_stats",reels:"l_reels",pillars:"l_pillars",topics:"l_topics",
+ tools:"l_tools",skills:"l_skills",services:"l_services",brands:"l_brands",more:"l_more"};
+var FIELDS=[["f_emblem","emblem"],["f_name","name"],["f_handle","handle"],["f_badge","badge"],
+ ["f_tagline","tagline"],["f_email","email"],["f_site","site"],["f_siteLabel","siteLabel"],["f_yt","youtube"],["f_verified","verified"]];
 
-  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+var D;
+try{ D=JSON.parse(document.getElementById("portfolio-data").textContent); }catch(e){ D={}; }
+if(!D.profile)D.profile={}; if(!D.insight)D.insight={}; if(!D.quote)D.quote={};
+Object.keys(LISTS).forEach(function(k){ if(!Array.isArray(D[k])) D[k]=[]; });
 
-  // Smooth active nav
-  const sections = document.querySelectorAll('[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let cur = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) cur = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + cur ? '#FF6B35' : '';
-    });
+var canEdit=false;
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function has(v){return v!=null&&String(v).trim()!=="";}
+function el(n){return document.querySelector('[data-render="'+n+'"]');}
+function put(n,html){var e=el(n);if(!e)return;e.innerHTML=html;e.style.display=html?"":"none";}
+function txt(n,v){var e=el(n);if(!e)return;e.textContent=has(v)?v:"";e.style.display=has(v)?"":"none";}
+function url(u){u=String(u||"").trim();return /^https?:\/\//i.test(u)?u:"";}
+
+function render(){
+  var p=D.profile, h=String(p.handle||"").replace(/^@/,"").trim();
+
+  el("logo").textContent=(has(p.emblem)?p.emblem+" ":"")+(h||"portfolio");
+
+  el("hero").innerHTML=
+    (has(p.emblem)?'<span class="emblem">'+esc(p.emblem)+'</span>':'')+
+    (has(p.badge)?'<span class="badge">'+esc(p.badge)+'</span>':'')+
+    '<h1>'+esc(p.name||"Your name")+'</h1>'+
+    (h?'<a class="hero-handle" href="https://instagram.com/'+encodeURIComponent(h)+'" target="_blank" rel="noopener">@'+esc(h)+
+      (/^y/i.test(String(p.verified||""))?' <span title="Verified">☑️</span>':'')+'</a>':'')+
+    (has(p.tagline)?'<p class="hero-tagline">“'+esc(p.tagline)+'”</p>':'')+
+    (D.tags.length?'<div class="hero-tags">'+D.tags.filter(function(t){return has(t.label);})
+      .map(function(t){return '<span class="tag">'+esc(t.label)+'</span>';}).join("")+'</div>':'')+
+    '<div class="hero-btns"><a class="btn-primary" href="#proof">🔥 See Proof of Work</a>'+
+    '<a class="btn-outline" href="#contact">Work With Me</a></div>';
+
+  txt("proofIntro",D.proofIntro);
+
+  put("stats",D.stats.filter(function(s){return has(s.value);}).map(function(s){
+    return '<div class="statbox"><div class="v">'+esc(s.value)+'</div>'+
+      '<div class="l">'+esc(s.label)+'</div></div>';}).join(""));
+
+  put("reels",D.reels.filter(function(r){return has(r.title);}).map(function(r,i){
+    var m=[["likes","❤️ Likes"],["shares","📤 Shares"],["saves","🔖 Saves"],
+           ["comments","💬 Comments"],["interactions","⚡ Interactions"]]
+      .filter(function(k){return has(r[k[0]]);})
+      .map(function(k){return '<div class="metric"><div class="m">'+esc(r[k[0]])+'</div>'+
+        '<div class="k">'+k[1]+'</div></div>';}).join("");
+    var foot=[]; if(has(r.watchtime))foot.push("Watch time: "+esc(r.watchtime));
+    if(has(r.visits))foot.push(esc(r.visits));
+    var lk=url(r.link);
+    var when=[r.date,has(r.duration)?"Duration "+r.duration:""].filter(has).join(" · ");
+    return '<article class="reel'+(i===0?' hero-reel':'')+'"><div class="reel-top">'+
+      (has(r.badge)?'<span class="pill">'+esc(r.badge)+'</span>':'')+
+      (has(r.category)?'<span class="pill cat">'+esc(r.category)+'</span>':'')+'</div>'+
+      '<h3>'+esc(r.title)+'</h3>'+
+      (when?'<p class="when">'+esc(when)+'</p>':'')+
+      (has(r.views)?'<div class="big">'+esc(r.views)+'</div><div class="biglbl">'+
+        esc(r.viewsLabel||"Total Views")+'</div>':'')+
+      (m?'<div class="metrics">'+m+'</div>':'')+
+      ((foot.length||lk)?'<p class="foot">'+foot.join(" · ")+
+        (lk?(foot.length?' · ':'')+'<a href="'+esc(lk)+'" target="_blank" rel="noopener">Watch reel</a>':'')+
+        '</p>':'')+'</article>';}).join(""));
+
+  var I=D.insight;
+  put("insight",(has(I.title)||has(I.body))?
+    '<div class="insight">'+(has(I.icon)?'<div class="ic">'+esc(I.icon)+'</div>':'')+
+    (has(I.title)?'<h3>'+esc(I.title)+'</h3>':'')+
+    (has(I.body)?'<p>'+esc(I.body)+'</p>':'')+'</div>':'');
+
+  var mr=(D.more||[]).filter(function(x){return has(x.title)&&has(x.views);});
+  txt("moreHead",mr.length?(D.moreHead||"More Top Performers"):"");
+  put("more",mr.length?'<ul class="more">'+mr.map(function(x){
+    return '<li><span class="ttl">'+esc(x.title)+'</span>'+
+      '<span class="vw">'+esc(x.views)+'</span></li>';}).join("")+'</ul>':'');
+
+  txt("pillarTitle",D.pillarTitle); txt("pillarIntro",D.pillarIntro);
+  put("pillars",D.pillars.filter(function(c){return has(c.title);}).map(function(c){
+    return '<div class="c">'+(has(c.icon)?'<div class="ic">'+esc(c.icon)+'</div>':'')+
+      '<h3>'+esc(c.title)+'</h3><p>'+esc(c.body)+'</p></div>';}).join(""));
+
+  var tp=D.topics.filter(function(t){return has(t.title);});
+  txt("topicHead",tp.length?D.topicHead:"");
+  put("topics",tp.map(function(t){
+    return '<div class="topic">'+(has(t.icon)?'<div class="ic">'+esc(t.icon)+'</div>':'')+
+      '<div><h4>'+esc(t.title)+'</h4><p>'+esc(t.body)+'</p></div></div>';}).join(""));
+
+  txt("stackIntro",D.stackIntro);
+  put("tools",D.tools.filter(function(t){return has(t.name);})
+    .map(function(t){return '<span class="chip hot">'+esc(t.name)+'</span>';}).join(""));
+  var sk=D.skills.filter(function(t){return has(t.name);});
+  txt("skillHead",sk.length?D.skillHead:"");
+  put("skills",sk.map(function(t){return '<span class="chip">'+esc(t.name)+'</span>';}).join(""));
+
+  txt("servicesIntro",D.servicesIntro);
+  put("services",D.services.filter(function(s){return has(s.title);}).map(function(s){
+    return '<div class="c">'+(has(s.icon)?'<div class="ic">'+esc(s.icon)+'</div>':'')+
+      '<h3>'+esc(s.title)+'</h3><p>'+esc(s.body)+'</p></div>';}).join(""));
+
+  var br=D.brands.filter(function(b){return has(b.name);});
+  txt("brandTitle",br.length?D.brandTitle:"");
+  txt("brandIntro",br.length?D.brandIntro:"");
+  var bsec=document.getElementById("brands"); if(bsec) bsec.style.display=br.length?"":"none";
+  put("brands",br.map(function(b){
+    return '<div class="c">'+(has(b.icon)?'<div class="ic">'+esc(b.icon)+'</div>':'')+
+      (has(b.meta)?'<div class="meta">'+esc(b.meta)+'</div>':'')+
+      '<h3>'+esc(b.name)+'</h3><p>'+esc(b.body)+'</p>'+
+      (url(b.link)?'<p style="margin-top:12px"><a href="'+esc(url(b.link))+'" target="_blank" rel="noopener" style="color:var(--orange);font-size:13.5px;font-weight:600">View the account</a></p>':'')+
+      '</div>';}).join(""));
+
+  var Q=D.quote;
+  put("quote",has(Q.text)?'<blockquote>“'+esc(Q.text)+'”</blockquote>'+
+    (has(Q.by)?'<cite>— '+esc(Q.by)+'</cite>':''):'');
+
+  txt("contactIntro",D.contactIntro);
+  var c="";
+  if(h)c+='<a class="clink" href="https://instagram.com/'+encodeURIComponent(h)+'" target="_blank" rel="noopener">'+
+    '<div class="t">📸 Instagram</div><div class="s">@'+esc(h)+'</div></a>';
+  if(has(p.email))c+='<a class="clink" href="mailto:'+esc(p.email)+'">'+
+    '<div class="t">✉️ Email me</div><div class="s">'+esc(p.email)+'</div></a>';
+  var yt=url(p.youtube);
+  if(yt)c+='<a class="clink" href="'+esc(yt)+'" target="_blank" rel="noopener">'+
+    '<div class="t">▶️ YouTube</div><div class="s">@'+esc(h||"channel")+'</div></a>';
+  var s=url(p.site);
+  if(s)c+='<a class="clink" href="'+esc(s)+'" target="_blank" rel="noopener">'+
+    '<div class="t">🌐 '+esc(p.siteLabel||"My Portfolio")+'</div><div class="s">'+esc(s.replace(/^https?:\/\//,"").replace(/\/$/,""))+'</div></a>';
+  put("contact",c);
+
+  el("footer").innerHTML='Made with '+esc(p.emblem||"🔱")+' by '+esc(p.name||"")+
+    (h?' · @'+esc(h):'')+(has(p.tagline)?' · '+esc(p.tagline):'')+
+    (has(D.updated)?'<div class="stamp">Figures updated '+esc(D.updated)+'</div>':'');
+
+  document.title=(p.name||"Portfolio")+(h?" — @"+h:"");
+}
+
+/* admin */
+function paintList(k){
+  var host=document.getElementById(LISTS[k]),f=SCHEMA[k];
+  host.innerHTML=D[k].map(function(it,i){
+    return '<div class="row"><button class="del" type="button" data-del="'+k+'" data-i="'+i+'">Remove</button>'+
+      '<p class="rowh">'+(i+1)+'</p><div class="fgrid">'+f.map(function(fd){
+        var id="x_"+k+"_"+i+"_"+fd[0], area=fd[2]==="area";
+        return '<div'+(area?' class="wide"':'')+'><label for="'+id+'">'+esc(fd[1])+'</label>'+
+          (area?'<textarea':'<input')+' id="'+id+'" data-i="'+i+'" data-f="'+fd[0]+'"'+
+          (area?'></textarea>':'>')+'</div>';}).join("")+'</div></div>';}).join("");
+  D[k].forEach(function(it,i){ f.forEach(function(fd){
+    var e=host.querySelector('[data-i="'+i+'"][data-f="'+fd[0]+'"]');
+    if(e) e.value=it[fd[0]]==null?"":it[fd[0]];});});
+}
+function paintAll(){
+  FIELDS.forEach(function(m){document.getElementById(m[0]).value=D.profile[m[1]]||"";});
+  document.getElementById("f_insIc").value=D.insight.icon||"";
+  document.getElementById("f_insTitle").value=D.insight.title||"";
+  document.getElementById("f_insBody").value=D.insight.body||"";
+  document.getElementById("f_qText").value=D.quote.text||"";
+  document.getElementById("f_qBy").value=D.quote.by||"";
+  Object.keys(LISTS).forEach(paintList);
+}
+function collect(){
+  FIELDS.forEach(function(m){D.profile[m[1]]=document.getElementById(m[0]).value.trim();});
+  D.insight={icon:document.getElementById("f_insIc").value.trim(),
+    title:document.getElementById("f_insTitle").value.trim(),
+    body:document.getElementById("f_insBody").value.trim()};
+  D.quote={text:document.getElementById("f_qText").value.trim(),
+    by:document.getElementById("f_qBy").value.trim()};
+  Object.keys(LISTS).forEach(function(k){
+    var host=document.getElementById(LISTS[k]);
+    D[k].forEach(function(it,i){ SCHEMA[k].forEach(function(fd){
+      var e=host.querySelector('[data-i="'+i+'"][data-f="'+fd[0]+'"]');
+      if(e) it[fd[0]]=e.value.trim();});});});
+}
+document.querySelectorAll("[data-add]").forEach(function(b){
+  b.addEventListener("click",function(){
+    var k=b.getAttribute("data-add"); collect();
+    var blank={}; SCHEMA[k].forEach(function(fd){blank[fd[0]]="";});
+    D[k].push(blank); paintList(k);
+    var host=document.getElementById(LISTS[k]);
+    var last=host.lastElementChild; if(last){ var inp=last.querySelector("input,textarea"); if(inp) inp.focus(); }
   });
+});
+document.getElementById("panel").addEventListener("click",function(e){
+  var t=e.target.closest("[data-del]"); if(!t)return;
+  var k=t.getAttribute("data-del"),i=parseInt(t.getAttribute("data-i"),10);
+  collect(); D[k].splice(i,1); paintList(k);
+});
+function openP(){paintAll();document.getElementById("panel").style.display="block";
+  document.body.classList.add("panel-open");}
+function closeP(){document.getElementById("panel").style.display="none";
+  document.body.classList.remove("panel-open");document.getElementById("msg").textContent="";}
+document.getElementById("editBtn").addEventListener("click",openP);
+document.getElementById("cancelBtn").addEventListener("click",function(){closeP();render();});
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"&&document.getElementById("panel").style.display==="block"){closeP();render();}});
+
+function serialize(){
+  var c=document.documentElement.cloneNode(true);
+  c.querySelectorAll("[data-render]").forEach(function(e){e.innerHTML="";e.removeAttribute("style");});
+  ["#panel","#editBtn"].forEach(function(s){var e=c.querySelector(s);if(e)e.removeAttribute("style");});
+  Object.keys(LISTS).forEach(function(k){var e=c.querySelector("#"+LISTS[k]);if(e)e.innerHTML="";});
+  var b=c.querySelector("body"); if(b)b.classList.remove("panel-open");
+  var m=c.querySelector("#msg"); if(m)m.textContent="";
+  c.querySelector("#portfolio-data").textContent=JSON.stringify(D).replace(/<\//g,"<\\/");
+  return "<!DOCTYPE html>\n"+c.outerHTML;
+}
+document.getElementById("saveBtn").addEventListener("click",async function(){
+  var btn=this,msg=document.getElementById("msg");
+  collect();
+  D.updated=new Date().toLocaleDateString("en-IN",{day:"numeric",month:"long",year:"numeric"});
+  render(); btn.disabled=true; msg.textContent="Publishing…";
+  try{
+    var a=await claude.use("artifact");
+    if(!a){msg.textContent="Publishing isn't available in this view.";btn.disabled=false;return;}
+    await a.publish(serialize());
+    msg.textContent="Published.";
+  }catch(err){
+    var code=err&&err.code;
+    msg.textContent = code==="conflict" ? "Someone saved first — reloading."
+      : (code==="not_writer"||code==="not_granted") ? "You don't have edit access here."
+      : "Couldn't publish. Try again.";
+    btn.disabled=false;
+  }
+});
+
+render();
+(async function(){
+  try{ var u=await claude.use("user");
+    if(u&&u.canEdit()===true){canEdit=true;document.getElementById("editBtn").style.display="block";}
+  }catch(e){}
+})();
+})();
 </script>
 </body>
 </html>
